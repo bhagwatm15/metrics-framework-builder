@@ -1,4 +1,4 @@
-# Platform Metrics Framework Builder
+# Metrics Framework Builder
 
 ## What is this?
 
