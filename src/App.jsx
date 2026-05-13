@@ -151,7 +151,7 @@ export default function App() {
             <div style={{ width: "26px", height: "26px", border: "1px solid #e2e8f0", borderRadius: "6px", display: "flex", alignItems: "center", justifyContent: "center", background: "#fff" }}>
               <span style={{ fontSize: "11px", color: "#94a3b8" }}>◈</span>
             </div>
-            <span style={{ fontSize: "10px", color: "#94a3b8", fontFamily: "'DM Mono', monospace", letterSpacing: "0.15em" }}>PLATFORM METRICS FRAMEWORK BUILDER</span>
+            <span style={{ fontSize: "10px", color: "#94a3b8", fontFamily: "'DM Mono', monospace", letterSpacing: "0.15em" }}>METRICS FRAMEWORK BUILDER</span>
           </div>
           <h1 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: "400", fontFamily: "'DM Serif Display', serif", margin: "0 0 14px", color: "#0f172a", lineHeight: 1.25 }}>
             Define metrics that actually matter
