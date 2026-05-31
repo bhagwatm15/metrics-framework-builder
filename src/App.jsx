@@ -368,7 +368,7 @@ export default function App() {
             </div>
 
             <p style={{ textAlign: "center", fontSize: "11px", color: "#6b5440", fontFamily: "'DM Mono', monospace", letterSpacing: "0.05em", marginTop: "16px" }}>
-              Powered by Claude · Built as a portfolio project
+              Built as a portfolio project
             </p>
           </div>
         )}
