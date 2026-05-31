@@ -65,4 +65,4 @@ npm run dev
 
 ---
 
-*Built as a portfolio project. Part of a broader body of work on platform PM thinking — including platform teardowns of Stripe and Amazon Seller Central.*
+
