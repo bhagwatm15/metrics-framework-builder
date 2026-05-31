@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ANTHROPIC_API = "https://api.anthropic.com/v1/messages";
+const ANTHROPIC_API = "/api/chat";
 
 async function generateMetricsFramework(inputs) {
   const prompt = `You are a senior product manager and metrics expert at a top tech company. Generate a rigorous, specific metrics framework for the following product.
