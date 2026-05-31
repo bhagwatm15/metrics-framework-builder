@@ -203,7 +203,7 @@ export default function App() {
           <rect width="100%" height="100%" fill="url(#chartrow)"/>
         </svg>
       </div>
-g>g>g>g>
+
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
         * { box-sizing: border-box; }
