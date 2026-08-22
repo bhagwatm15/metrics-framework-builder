@@ -92,9 +92,22 @@ export default function App() {
   const [activeTab, setActiveTab] = useState("good");
   const [exampleUsed, setExampleUsed] = useState(false);
   const [exampleHover, setExampleHover] = useState(false);
+  const [clearHover, setClearHover] = useState(false);
 
   const update = (field, val) => setInputs(p => ({ ...p, [field]: val }));
   const allFilled = Object.values(inputs).every(v => v.trim() !== "");
+  const hasContent = Object.values(inputs).some(v => v.trim() !== "") || results || error;
+
+  function clearForm() {
+    setInputs({
+      productName: "", description: "", primaryUser: "",
+      stage: "", businessModel: "", problem: ""
+    });
+    setResults(null);
+    setError(null);
+    setExampleUsed(false);
+    setActiveTab("good");
+  }
 
   function loadExample() {
     setInputs({
@@ -264,7 +277,15 @@ export default function App() {
             </div>
           </div>
 
-          <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "10px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
+            <button
+              onClick={clearForm}
+              disabled={!hasContent}
+              style={{ fontFamily: "'DM Mono', monospace", fontSize: "12px", letterSpacing: "0.04em", background: !hasContent ? "transparent" : clearHover ? "#f1f5f9" : "transparent", color: !hasContent ? "#cbd5e1" : "#6b5440", border: `1px solid ${!hasContent ? "#e2e8f0" : "#cbd5e1"}`, borderRadius: "6px", padding: "7px 16px", cursor: !hasContent ? "not-allowed" : "pointer", transition: "all 0.2s", opacity: !hasContent ? 0.5 : 1 }}
+              onMouseEnter={() => hasContent && setClearHover(true)}
+              onMouseLeave={() => setClearHover(false)}>
+              ↺ Clear
+            </button>
             <button
               onClick={loadExample}
               disabled={exampleUsed}
