@@ -72,6 +72,15 @@ Respond ONLY with a JSON object, no preamble or markdown:
   return JSON.parse(clean);
 }
 
+function cacheKeyForInputs(inputs) {
+  const normalized = JSON.stringify(inputs, Object.keys(inputs).sort());
+  let hash = 0;
+  for (let i = 0; i < normalized.length; i++) {
+    hash = (hash * 31 + normalized.charCodeAt(i)) | 0;
+  }
+  return `mfb_result_${hash}`;
+}
+
 const STAGES = ["Early / Discovery", "Growth", "Mature / Optimisation"];
 const MODELS = ["Free", "Freemium", "Subscription", "Platform / Marketplace", "Enterprise / B2B"];
 
@@ -127,7 +136,14 @@ export default function App() {
     if (!allFilled) return;
     setLoading(true); setError(null); setResults(null);
     try {
-      const framework = await generateMetricsFramework(inputs);
+      const cacheKey = cacheKeyForInputs(inputs);
+      const cached = localStorage.getItem(cacheKey);
+      const framework = cached
+        ? JSON.parse(cached)
+        : await generateMetricsFramework(inputs);
+      if (!cached) {
+        try { localStorage.setItem(cacheKey, JSON.stringify(framework)); } catch {}
+      }
       setResults(framework);
     } catch {
       setError("Something went wrong. Please try again.");
